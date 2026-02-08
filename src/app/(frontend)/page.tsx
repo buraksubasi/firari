@@ -5,6 +5,8 @@ import config from '@/payload.config'
 import './styles.css'
 import { MenuList } from './menu-list'
 
+// ISR: 60 saniyede bir sayfayı yeniden oluştur
+export const revalidate = 60
 export default async function HomePage() {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
