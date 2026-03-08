@@ -31,7 +31,7 @@ export function MenuList({ menus }: MenuListProps) {
         padding: '10px'
       }}>
         <ul style={{ listStyle: 'none', padding: 0 }}>
-          {menus.map((menu: any) => (
+          {menus.map((menu: any, index: number) => (
             <li 
               key={menu.id} 
               onClick={() => openModal(menu)}
@@ -64,12 +64,13 @@ export function MenuList({ menus }: MenuListProps) {
                     alt={menu.title || 'Menü görseli'}
                     width={100}
                     height={100}
+                    priority={index < 5}
                     style={{ objectFit: 'cover', borderRadius: '4px' }}
                   />
                 </div>
               )}
               <div>
-                <strong style={{ fontSize: '16px' }}>{menu.title}</strong>
+                <strong style={{ fontSize: '16px',color:"#555"}}>{menu.title}</strong>
                 <br />
                 {menu.description && (
                   <>
@@ -148,7 +149,7 @@ export function MenuList({ menus }: MenuListProps) {
                   </div>
                 )}
 
-                <h2 style={{ marginBottom: '10px', fontSize: '24px' }}>{selectedMenu.title}</h2>
+                <h2 style={{ marginBottom: '10px', fontSize: '24px', color: '#555' }}>{selectedMenu.title}</h2>
                 
                 {selectedMenu.price && (
                   <p style={{ fontSize: '20px', color: '#e63946', fontWeight: 'bold', marginBottom: '15px' }}>
